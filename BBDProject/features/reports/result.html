@@ -1,0 +1,18 @@
+Feature: As a user I should be able to perform simple google search
+
+  Scenario: A simple google search scenario                                # features/simple_search.feature:3
+    Given I am on the main google search                                   # features/step_definitions/search_step.rb:1
+      Net::ReadTimeout (Net::ReadTimeout)
+      ./features/step_definitions/search_step.rb:2:in `/^I am on the main google search$/'
+      features/simple_search.feature:4:in `Given I am on the main google search'
+    When I fill in "q" with "Cucumber test"                                # features/step_definitions/search_step.rb:5
+    And I click search button                                              # features/step_definitions/search_step.rb:9
+    And I click on the first result                                        # features/step_definitions/search_step.rb:14
+    Then I should see "BDD for busy people - London, UK - March 15th 2017" # features/step_definitions/search_step.rb:18
+
+Failing Scenarios:
+cucumber features/simple_search.feature:3 # Scenario: A simple google search scenario
+
+1 scenario (1 failed)
+5 steps (1 failed, 4 skipped)
+1m15.885s
