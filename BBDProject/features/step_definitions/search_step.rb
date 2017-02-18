@@ -1,4 +1,7 @@
+
 Given /^I am on the main google search$/ do
+  $max_time = 20
+  CapybaraEnvConfiguration.environment_configuration("http://google.com")
   visit ('/')
 end
 
