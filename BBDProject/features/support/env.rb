@@ -35,6 +35,7 @@ After do |scenario|
   # the #failed?, #passed? and #exception methods.
 
   if scenario.failed?
+    puts "Session quit due to scenario has failed"
     Capybara.current_session.driver.quit
   end
 end
