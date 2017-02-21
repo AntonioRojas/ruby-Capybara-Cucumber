@@ -8,6 +8,7 @@ class CapybaraEnvConfiguration
     Capybara.default_driver = :selenium
     Capybara.app_host = host
     Capybara.default_max_wait_time = $max_time
+    Capybara.run_server = false
   end
 end
 
@@ -20,8 +21,19 @@ class CapybaraDriverRegister
   end
 
 end
-
+#registering with chrome
 CapybaraDriverRegister.register_selenium_driver(:chrome)
+
 # In case you want ot use firefox, remember to copy geckodriver in your system path
 #CapybaraDriverRegistrar.register_selenium_driver(:firefox)
-Capybara.run_server = false
+
+After do |scenario|
+  # Do something after each scenario.
+  # The +scenario+ argument is optional, but
+  # if you use it, you can inspect status with
+  # the #failed?, #passed? and #exception methods.
+
+  if scenario.failed?
+    Capybara.current_session.driver.quit
+  end
+end
