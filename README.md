@@ -13,6 +13,8 @@ gem install selenium
 gem install rspec
 gem install capybara-screenshot
 gem install sinatra
+gem install rest_client
+gem install json
 ```
 
 By default, the test have been tested using Chrome. Depending on which browser you would like to use, 
