@@ -9,6 +9,7 @@ class CapybaraEnvConfiguration
     Capybara.app_host = host
     Capybara.default_max_wait_time = $max_time
     Capybara.run_server = false
+    Capybara.current_session.windows[0].maximize
   end
 end
 
