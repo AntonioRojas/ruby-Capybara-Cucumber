@@ -1,5 +1,6 @@
 require 'capybara'
 require 'capybara/cucumber'
+require 'capybara-screenshot/cucumber'
 
 $max_time = 5
 
@@ -36,6 +37,14 @@ After do |scenario|
 
   if scenario.failed?
     puts "Session quit due to scenario has failed"
+    Capyabara::Screenshot.screenshot_and_save_page
     Capybara.current_session.driver.quit
   end
+end
+
+Before do |scenario|
+# The +scenario+ argument is optional, but if you use it, you can get the title,
+# description, or name (title + description) of the scenario that is about to be
+# executed.
+    puts "Scenario has started: " + scenario.name
 end
