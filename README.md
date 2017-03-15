@@ -26,3 +26,5 @@ For Firefox, you can find the [Selenium firefox driver](https://github.com/mozil
 
 run it on the project folder
 # cucumber -o features/reports/result.html
+
+for features implemented on SDFC https://na40.salesforce.com make sure you add IP trusted on network settings to avoid activation code

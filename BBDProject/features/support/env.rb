@@ -3,6 +3,7 @@ require 'capybara/cucumber'
 require 'capybara-screenshot/cucumber'
 
 $max_time = 5
+$load_page_wait_time = 30
 
 class CapybaraEnvConfiguration
   def self.environment_configuration(host)
@@ -37,7 +38,7 @@ After do |scenario|
 
   if scenario.failed?
     puts "Session quit due to scenario has failed"
-    Capyabara::Screenshot.screenshot_and_save_page
+    Capybara::Screenshot.screenshot_and_save_page
     Capybara.current_session.driver.quit
   end
 end
